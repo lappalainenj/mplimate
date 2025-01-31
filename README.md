@@ -20,11 +20,12 @@ from mplimate import Imshow
 
 # Arrays passed to the animation objects expect to be in shape (samples, frames, ...)
 anim = Imshow(np.random.rand(1, 10, 64, 64))
-anim.run(frames="all", samples="all", repeat=1)
+
+# Run the animation
+anim.run()
+
+# Or export the animation
+anim.export("animation.mp4", dpi=300, framerate=10, delete_if_exists=True)
 ```
 
-Export an imshow animation:
-
-```python
-anim.export(directory="animations", dest="animations/imshow.mp4", framerate=24)
-```
+More examples in the [examples](examples) folder.
