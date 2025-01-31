@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=65", "wheel", "setuptools_scm[toml]>=3.4"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+write_to = "mplimate/version.py"
+
+[tool.setuptools]
+include-package-data = true
+
+[project]
+name = "mplimate"
+dynamic = ["version"]
+description = "A Python library for creating animated matplotlib visualizations"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {file = "LICENSE"}
+dependencies = [
+    "matplotlib",
+    "numpy",
+    "ffmpeg-python",
+    "ipython",
+]
+
+[project.optional-dependencies]
+dev = [
+    "jupyter",
+    "pytest",
+    "pytest-cov",
+    "pre-commit",
+    "ruff",
+]
+
+[tool.setuptools.packages.find]
+include = ["mplimate"]
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B", "I"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
